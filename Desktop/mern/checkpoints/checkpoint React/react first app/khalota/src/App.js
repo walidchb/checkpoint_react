@@ -1,17 +1,21 @@
 import "./App.css";
-import Adress from "./components/Profile/Adress";
-import FullName from "./components/Profile/FullName";
-import ProfilePhoto from "./components/Profile/ProfilePhoto";
-import Couverture from "./components/Profile/Couverture";
-
+import logo from "./logo512.png";
 function App() {
   const a = 10;
   return (
     <div className="div">
-      <Couverture />
-      <ProfilePhoto />
-      <FullName />
-      <Adress />
+      <div>
+        <div style={{ border: "solid 1px black", maxWidth: "100vw" }}>
+          <h1 className="title red">Your name here</h1>
+          <br />
+          <img src={logo} />
+          <br />
+          <img src="/mikassa.jpg" />
+        </div>
+        <video width={320} height={240} controls>
+          <source src="#" type="video/mp4" />
+        </video>
+      </div>
     </div>
   );
 }
