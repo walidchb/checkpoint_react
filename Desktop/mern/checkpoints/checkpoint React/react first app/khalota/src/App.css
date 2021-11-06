@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Mochiy+Pop+One&display=swap');
+
+.div {
+  border-radius: 25px;
+  overflow: hidden;
+  text-align: center;
+  border: 2px black solid;
+  width: 30%;
+}
+.tof_div{
+  padding: 0px;
+}
+.couverture{
+  object-fit:cover;
+  height: 8em;
+  width: 100%;
+}
+.Profil_Photo {
+  object-fit:cover;
+  padding: 0px;
+  border: 0.4em white solid;
+  width: 7em;
+  height: 6em; 
+  margin-top: -20%;
+  border-radius: 50%;
+}
+
+.name{
+  font-size: 1em;
+  font-family: 'Amatic SC', cursive;
+  font-family: 'Mochiy Pop One', sans-serif;
+}
