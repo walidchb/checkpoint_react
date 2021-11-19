@@ -1,32 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Mochiy+Pop+One&display=swap');
 
-.div {
-  border-radius: 25px;
-  overflow: hidden;
-  text-align: center;
-  border: 2px black solid;
-  width: 30%;
-}
-.tof_div{
+*{
+  margin: 0px;
   padding: 0px;
-}
-.couverture{
-  object-fit:cover;
-  height: 8em;
-  width: 100%;
-}
-.Profil_Photo {
-  object-fit:cover;
-  padding: 0px;
-  border: 0.4em white solid;
-  width: 7em;
-  height: 6em; 
-  margin-top: -20%;
-  border-radius: 50%;
 }
 
-.name{
-  font-size: 1em;
-  font-family: 'Amatic SC', cursive;
-  font-family: 'Mochiy Pop One', sans-serif;
+
+.Principale_DIV {
+  display: flex;
+  flex-direction: row;
+  border: 3px black solid;
+  align-items: center;
+  width: 80%;
+  margin: 1em;
 }
+.Principale_DIV_Featured {
+  border-left: 5px green solid;
+}
+
+.left{
+  width:20%;
+  margin: 0em 0em;
+  justify-content: center;}
+
+.middle{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;}
+
+.right{
+  width: max-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
+
+.middle_high{
+  display: flex;
+  flex-direction: row
+}
+
+
+
+.middle_low{
+  display: flex;
+  flex-direction: row
+}
+

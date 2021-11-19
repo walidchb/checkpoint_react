@@ -1,21 +1,29 @@
 import "./App.css";
-import logo from "./logo512.png";
+import OUR_CMPNT from "./component/OUR_CMPNT";
+import data from "./data.json";
+
 function App() {
-  const a = 10;
   return (
     <div className="div">
-      <div>
-        <div style={{ border: "solid 1px black", maxWidth: "100vw" }}>
-          <h1 className="title red">Your name here</h1>
-          <br />
-          <img src={logo} />
-          <br />
-          <img src="/mikassa.jpg" />
-        </div>
-        <video width={320} height={240} controls>
-          <source src="#" type="video/mp4" />
-        </video>
-      </div>
+      {data.map((i) => {
+        return (
+          <div>
+            <OUR_CMPNT
+              img={i.logo}
+              one={i.company}
+              news={i.new}
+              // New={news}
+              featured={i.featured}
+              job={i.position}
+              date={i.postedAt}
+              time={i.contract}
+              place={i.location}
+              skill={i.languages}
+              tools={i.tools}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 }
