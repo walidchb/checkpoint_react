@@ -37,8 +37,4 @@ const OUR_CMPNT = (props) => {
   );
 };
 
-// OUR_CMPNT.propTypes = {
-//   news : PropTypes.bool,
-// }
-
 export default OUR_CMPNT;
