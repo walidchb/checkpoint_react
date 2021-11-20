@@ -5,8 +5,9 @@ import Help from "./component/Help";
 import Profile from "./Profile/Profile";
 
 function App() {
-  var handleName_func = () => {
-    alert("CHEBBAB Walid");
+  const name = "CHEBBAB Walid";
+  const handleName_func = (name) => {
+    alert(name);
   };
 
   const principle_div = {
@@ -20,7 +21,7 @@ function App() {
   return (
     <div style={principle_div} className="div">
       <Profile
-        fullName="CHEBBAB Walid"
+        fullName={name}
         bio={bio}
         Profession="software enginner"
         handleName={handleName_func}

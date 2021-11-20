@@ -25,13 +25,13 @@ function Profile(props) {
       <div style={profile_style}>
         <div>{props.children}</div>
         <div style={name_job_style}>
-          <h3 className={"walid"}>{props.fullName}</h3>
+          <h3>{props.fullName}</h3>
           <h5>{props.Profession}</h5>
         </div>
       </div>
 
       <p style={bio_style}>{props.bio}</p>
-      <button onClick={props.handleName} type="">
+      <button onClick={() => props.handleName(props.fullName)} type="">
         handleName
       </button>
     </div>
