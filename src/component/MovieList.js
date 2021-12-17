@@ -1,93 +1,110 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import MovieCard from "./MovieCard";
+import "./style.css";
 
-export default class MovieList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: "",
-      description: "",
-      rating: "",
-      poster: "",
-    };
-    this.TitleChange = this.TitleChange.bind(this);
-    this.DescriptionChange = this.DescriptionChange.bind(this);
-    this.PosterURLChange = this.PosterURLChange.bind(this);
-    this.RatingChange = this.RatingChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+function MovieList() {
+  const [movies, setMovies] = useState([]);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [rating, setRating] = useState("");
+  const [poster, setPoster] = useState("");
+  const [Filter, setFilter] = useState(0);
+
+  function TitleChange(event) {
+    setTitle(event.target.value);
   }
 
-  TitleChange(event) {
-    this.setState({ title: event.target.value });
+  function DescriptionChange(event) {
+    setDescription(event.target.value);
   }
 
-  DescriptionChange(event) {
-    this.setState({ description: event.target.value });
+  function PosterURLChange(event) {
+    setPoster(event.target.value);
   }
 
-  PosterURLChange(event) {
-    this.setState({ poster: event.target.value });
+  function RatingChange(event) {
+    setRating(event.target.value);
   }
 
-  RatingChange(event) {
-    this.setState({ rating: event.target.value });
+  function handleSubmit(event) {
+    event.preventDefault();
+    setMovies([
+      ...movies,
+      {
+        title,
+        description,
+        rating,
+        poster,
+      },
+    ]);
   }
 
-  handleSubmit(event) {
-    // <MovieCard
-    //   title={this.state.title}
-    //   description={this.state.description}
-    //   poster={this.state.poster}
-    //   rating={this.state.rating}
-    // />;
-    alert("title : " + this.state.title);
+  function FilterChange(event) {
+    setFilter(event.target.value);
+  }
+
+  function FilterSubmit(event) {
     event.preventDefault();
   }
 
-  render() {
-    return (
-      <div>
-        <MovieCard />
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Title :
-            <input
-              type="text"
-              value={this.state.title}
-              onChange={this.TitleChange}
-            />
-          </label>
+  var MoviesFilter = [];
+  movies.forEach((element) => {
+    if (element.rating > Filter) {
+      MoviesFilter.push(element);
+    }
+  });
 
-          <label>
-            Description :
-            <input
-              type="text"
-              value={this.state.description}
-              onChange={this.DescriptionChange}
+  return (
+    <div>
+      <div className="MovieList">
+        {MoviesFilter.map((movie) => {
+          return (
+            <MovieCard
+              title={movie.title}
+              desc={movie.description}
+              rating={movie.rating}
+              poster={movie.poster}
             />
-          </label>
-
-          <label>
-            PosterURL :
-            <input
-              type="text"
-              value={this.state.poster}
-              onChange={this.PosterURLChange}
-            />
-          </label>
-
-          <label>
-            Rating :
-            <input
-              type="text"
-              value={this.state.rating}
-              onChange={this.RatingChange}
-            />
-          </label>
-
-          <input type="submit" value="Envoyer" />
-        </form>
+          );
+        })}
       </div>
-    );
-  }
+
+      <form onSubmit={handleSubmit}>
+        <label>
+          Title :
+          <input type="text" value={title} onChange={TitleChange} />
+        </label>
+
+        <label>
+          Description :
+          <input type="text" value={description} onChange={DescriptionChange} />
+        </label>
+
+        <label>
+          PosterURL :
+          <input type="text" value={poster} onChange={PosterURLChange} />
+        </label>
+
+        <label>
+          Rating :
+          <input type="number" value={rating} onChange={RatingChange} />
+        </label>
+
+        <input type="submit" value="Envoyer" />
+      </form>
+
+      <br />
+      <br />
+      <br />
+      <form onSubmit={FilterSubmit}>
+        <label>
+          Minimum Rate :
+          <input type="number" value={Filter} onChange={FilterChange} />
+        </label>
+        <input type="submit" value="Envoyer" />
+      </form>
+    </div>
+  );
 }
+
+export default MovieList;

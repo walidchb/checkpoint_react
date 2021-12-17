@@ -3,3 +3,8 @@
     width: fit-content;
     text-align: center;
 }
+
+.MovieList{
+    display: flex;
+    flex-direction: row;
+}

@@ -1,15 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import "./style.css";
 
-export default class MovieCard extends Component {
-  render() {
-    return (
-      <div className="card">
-        <img src="./mikassa.jpg" alt="" />
-        <h3>title : Attack n titan </h3>
-        <h3>description : the best ever</h3>
-        <h3>rating : 9.8</h3>
-      </div>
-    );
-  }
+function MovieCard(props) {
+  return (
+    <div className="card">
+      <img src={props.poster} alt="" />
+      <h3>title : {props.title}</h3>
+      <h3>description : {props.desc}</h3>
+      <h3>rating : {props.rating}</h3>
+    </div>
+  );
 }
+
+export default MovieCard;
